@@ -1,6 +1,9 @@
 # Introduction
 htmx demo sites created for a conference talk titled "Interactive web pages with Django or Flask, without writing JavaScript"
 
+- Created by Coen de Groot, independent Python trainer and developer
+- https://www.betterpythoncode.com/
+
 # Set up - data
 As far as I know there are no limitations on the use of the data which you need for this website. However, to be on the safe side, I have not included it in the repository.
 
@@ -20,7 +23,7 @@ To get the data:
   - Flask-SQLAlchemy
   - Bokeh
   - python-dotenv
-- 
+
 I developed this with Python 3.10 but it probably works in Python 3.6 or higher
 
 # Django and Flask website
