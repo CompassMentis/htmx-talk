@@ -1,0 +1,24 @@
+<tr hx-target="this" hx-swap="outerHTML">
+  <td>
+    {{ location.name }}
+  </td>
+  <td>
+    <button
+            id="edit-button-{{ location.id }}"
+            class="button is-small is-info"
+            hx-get="/edit_location/{{ location.id }}"
+    >Edit</button>
+  </td>
+  <td>
+    {% if location.dinosaurs() %}
+      {{ location.dinosaurs() | length }} dinosaur(s)
+    {% else %}
+      <button
+              id="delete-button-{{ location.id }}"
+              class="button is-small is-danger"
+              hx-delete="/delete_location/ {{ location.id }}"
+              hx-confirm="Delete location '{{ location.name }}'. Are you sure?"
+      >Delete</button>
+    {% endif %}
+  </td>
+</tr>

@@ -1,0 +1,16 @@
+  <div id="tabs" class="tabs is-boxed">
+    <ul>
+      {% for diet in diets %}
+        <li
+                {% if diet == active_diet %}class="is-active"{% endif %}
+                hx-get="{% url 'set_dinosaurs_for_diet' %}"
+                hx-target="#tabs"
+                hx-vals='{"diet_id": {{ diet.id }} }'
+        >
+          <a>
+            {{ diet.name | capfirst }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>

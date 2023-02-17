@@ -1,0 +1,6 @@
+<table class="table" id="location_list">
+  {% include 'partials/create_location.html' %}
+  {% for location in locations %}
+    {% include 'partials/single_location.html'%}
+  {% endfor %}
+</table>

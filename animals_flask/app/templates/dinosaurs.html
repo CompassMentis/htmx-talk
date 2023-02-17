@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Dinosaur Taxonomy{% endblock %}
+
+{% block body %}
+  <form>
+    <div class="columns">
+    <div class="column is-one-fifth"
+            id="select1"
+            hx-get="/update_dinosaurs_from_selection"
+            hx-target="#dinosaur_list"
+            hx-vals='{"select_level": 1}'
+            hx-include="[name='taxon_id_1']"
+    >
+      <select name="taxon_id_1" class="is-size-6">
+        <option value="-1">(all)</option>
+        {% for taxon in taxons %}
+          <option value="{{ taxon.id }}">{{ taxon.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="column is-one-fifth" id="select2"></div>
+    <div class="column is-one-fifth" id="select3"></div>
+    </div>
+  </form>
+  <h2 id="filter" class="is-size-2">All dinosaurs</h2>
+  <div id="dinosaur_list">
+    {% include 'partials/dinosaur_list.html' %}
+  </div>
+{% endblock %}

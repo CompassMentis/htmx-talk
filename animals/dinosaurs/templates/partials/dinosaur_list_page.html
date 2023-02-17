@@ -1,0 +1,12 @@
+{% for dinosaur in dinosaurs %}
+  <tr>
+    <td>{{ dinosaur.name | capfirst}}</td>
+  </tr>
+{% endfor %}
+
+<tr><td>------</td></tr>
+
+<tr hx-get="{% url 'dinosaur_page_list' page_number=next_page_number %}"
+  hx-trigger="intersect once delay:1s"
+  hx-swap="afterend">
+</tr>

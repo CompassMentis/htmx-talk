@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Dinosaurs by diet{% endblock %}
+
+{% block body %}
+  {% include 'partials/diet_tabs.html' %}
+
+  <div id="dinosaur_list">
+    {% include 'partials/dinosaur_list.html' %}
+  </div>
+{% endblock %}

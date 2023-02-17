@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+  <head>
+    <title>htmx demo</title>
+     <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+     <script src="{% static 'js/htmx.min.js' %}"></script>
+    {% block head_extra %}{% endblock %}
+  </head>
+  <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+    <section class="section">
+      <div class="container">
+        {% include 'partials/navbar.html' %}
+        <div class="box has-background-primary">
+          <h1 class="title is-1 has-text-primary-light">{% block title %}{% endblock %}</h1>
+        </div>
+        {% block body %}
+        {% endblock %}
+      </div>
+    </section>
+    {% block extra_javascript %}{% endblock %}
+  </body>
+</html>

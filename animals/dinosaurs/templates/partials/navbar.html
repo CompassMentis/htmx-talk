@@ -1,0 +1,50 @@
+
+<div class="box p-0">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="{% url 'home' %}">
+          Home
+        </a>
+
+        <a class="navbar-item" href="{% url 'locations' %}">
+          Locations
+        </a>
+
+        <a class="navbar-item" href="{% url 'dinosaur_chart' %}">
+          Chart
+        </a>
+
+        <a class="navbar-item" href="{% url 'dinosaurs_by_period' %}">
+          Single dropdown
+        </a>
+
+        <a class="navbar-item" href="{% url 'dinosaurs' %}">
+          Dropdowns
+        </a>
+
+        <a class="navbar-item" href="{% url 'dinosearch' %}">
+          Search
+        </a>
+
+        <a class="navbar-item" href="{% url 'scrolling_dinosaur_list' %}">
+          Scrolling page
+        </a>
+
+        <a class="navbar-item" href="{% url 'dinosaur_favourites' %}">
+          Drag, drop, reorder
+        </a>
+
+        <a class="navbar-item" href="{% url 'dinosaurs_by_diet' %}">
+          Tabs
+        </a>
+
+      </div>
+
+      <div class="navbar-end">
+        <a class="navbar-item" href="{% url 'about' %}">
+          About
+        </a>
+      </div>
+  </nav>
+</div>

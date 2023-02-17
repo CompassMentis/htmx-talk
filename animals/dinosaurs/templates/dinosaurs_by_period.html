@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Dinosaurs for period{% endblock %}
+
+{% block body %}
+  <select
+          name='period'
+          hx-get="{% url 'dinosaurs_for_period' %}"
+          hx-target="#dinosaur_list"
+          class="is-size-6"
+  >
+    <option value=-1>(all)</option>
+    {% for period in periods %}
+      <option value="{{ period.id }}">{{ period.name }}</option>
+    {% endfor %}
+  </select>
+  <div id="dinosaur_list" class="mt-4">
+    {% include 'partials/dinosaur_list.html' %}
+  </div>
+{% endblock %}

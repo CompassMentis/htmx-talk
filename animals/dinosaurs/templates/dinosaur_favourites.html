@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_extra %}
+   <script src="{% static 'js/Sortable.js' %}"></script>
+{% endblock %}
+
+{% block extra_javascript %}
+  <script>
+    let example2Left = document.getElementById('example2-left')
+    let example2Right = document.getElementById('example2-right')
+    new Sortable(example2Left, {
+        group: 'shared', // set both lists to same group
+        animation: 150,
+        filter: '.header'
+    });
+    new Sortable(example2Right, {
+        group: 'shared',
+        animation: 150,
+        filter: '.header'
+    });
+  </script>
+{% endblock %}
+
+{% block title %}Drag and drop{% endblock %}
+
+{% block body %}
+  <form class="sortable" hx-post="{% url 'update_dinosaur_favourites' %}" hx-trigger="end" hx-swap="none">
+    <div class="columns">
+
+      <div id="example2-right" class="column is-half">
+        <div class="box header has-background-info has-text-white is-size-5 p-3">My favourite dinosaurs</div>
+        {% for dinosaur in favourite_dinosaurs %}
+          <div class="box p-2">
+            <input type='hidden' name='item' value='{{ dinosaur.id }}'/>
+            {{ dinosaur.name | capfirst }}
+          </div>
+        {% endfor %}
+      </div>
+
+      <input type="hidden" name="item" value="separator"/>
+
+      <div id="example2-left" class="column is-half">
+        <div class="box header has-background-info has-text-white is-size-5 p-3">Other dinosaurs</div>
+        {% for dinosaur in dinosaurs %}
+          <div class="box p-2">
+            <input type='hidden' name='item' value='{{ dinosaur.id }}'/>
+            {{ dinosaur.name | capfirst }}
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </form>
+{% endblock %}

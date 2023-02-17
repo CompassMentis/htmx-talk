@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Dinosaur Search{% endblock %}
+
+{% block body %}
+  <div class="box p-4">
+    <p>
+      Search by
+      <input class="form-control" type="search"
+             name="search"
+             hx-get="{% url 'dinosearch_list' %}"
+             hx-trigger="keyup changed delay:500ms, search"
+             hx-target="#search_results"
+             >
+    </p>
+  </div>
+  <div id="search_results">
+    {% include 'partials/dinosaur_list.html' %}
+  </div>
+{% endblock %}

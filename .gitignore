@@ -1,0 +1,13 @@
+data/
+*.sqlite3
+assets/
+.env/
+.venv/
+venv/
+.idea/
+__pycache__
+*.pyc
+*.css
+*.css.map
+*.js
+*.png

@@ -1,0 +1,54 @@
+{% include 'partials/dinosaur_list.html' %}
+
+<h2 class="is-size-2" id="filter" hx-swap-oob="true">{{ filter_description }}</h2>
+
+{% if level == 0 %}
+    <div id="select2" hx-swap-oob="true"></div>
+    <div id="select3" hx-swap-oob="true"></div>
+{% endif %}
+
+{% if level == 1 %}
+  {# Show/replace the second dropdown, remove any third dropdown #}
+    <div
+            class="column is-one-fifth"
+            id="select2"
+            hx-get="/update_dinosaurs_from_selection"
+            hx-target="#dinosaur_list"
+            hx-vals='{"select_level": 2}'
+            hx-include="[name='taxon_id_1'], [name='taxon_id_2']"
+            hx-swap-oob="true"
+    >
+    <select name="taxon_id_2" class="is-size-6">
+      <option value="-1">(all)</option>
+      {% for taxon in sub_taxons %}
+        <option value="{{ taxon.id }}">{{ taxon.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div id="select3" hx-swap-oob="true" class="column"></div>
+{% endif %}
+
+{% if level == 2 %}
+  {# Show/replace the third dropdown #}
+    <div
+            class="column is-one-fifth"
+            id="select3"
+            hx-get="/update_dinosaurs_from_selection"
+            hx-target="#dinosaur_list"
+            hx-vals='{"select_level": 3}'
+            hx-include="[name='taxon_id_2'], [name='taxon_id_3']"
+            hx-swap-oob="true"
+    >
+    <select name="taxon_id_3" class="is-size-6">
+      <option value="-1">(all)</option>
+      {% for taxon in sub_taxons %}
+        <option value="{{ taxon.id }}">{{ taxon.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+{% endif %}
+
+{% if level == 3 %}
+  {# Do nothing - just show the list of dinosaurs #}
+{% endif %}

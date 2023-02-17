@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Scrolling dinosaur list{% endblock %}
+
+{% block body %}
+  <p class="mb-5">Dinosaurs loaded in blocks of 10</p>
+  <table>
+    <tr hx-get="/dinosaur_page_list/0"
+      hx-trigger="intersect once delay:1s"
+      hx-swap="afterend">
+    </tr>
+  </table>
+{% endblock %}

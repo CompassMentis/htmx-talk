@@ -1,0 +1,22 @@
+<tr id="new_location">
+    <td>
+        <input type="text" name="name" maxlength="200" required id="id_name">
+    </td>
+    <td>
+      <button
+              class="button is-small is-success"
+              hx-post="/save_new_location"
+              hx-include="[name='name']"
+              hx-target="#location_list"
+              hx-swap="outerHTML"
+      >Save</button>
+    </td>
+    <td>
+      <button
+              class="button is-small is-warning"
+              hx-get="/create_location"
+              hx-target="#new_location"
+              hx-swap="outerHTML"
+      >Cancel</button>
+    </td>
+</tr>

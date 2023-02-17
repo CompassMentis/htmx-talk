@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Number of dinosaur types over time{% endblock %}
+
+{% block body %}
+  <div id="chart">
+    {{ chart | safe }}
+  </div>
+  <p class="is-size-3" hx-target="#chart">
+    From
+    <input
+            size="4"
+            hx-get="/dinosaur_chart_partial"
+            hx-include="[name='end']"
+            step="1"
+            min="{{ period_start }}"
+            max="{{ period_end }}"
+            value="{{ period_start }}"
+            name="start"
+            class="is-size-4"
+    >
+    To
+    <input
+            size="4"
+            hx-get="/dinosaur_chart_partial"
+            hx-include="[name='start']"
+            step="1"
+            min="{{ period_start }}"
+            max="{{ period_end }}"
+            value="{{ period_end }}"
+            name="end"
+            class="is-size-4"
+    >
+      millions years ago
+  </p>
+{% endblock %}

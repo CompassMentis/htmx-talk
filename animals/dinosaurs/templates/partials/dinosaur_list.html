@@ -1,0 +1,12 @@
+<h1 class="title is-size-4">{{ dinosaurs | length }} dinosaurs found</h1>
+
+<ul>
+  {% for dinosaur in dinosaurs %}
+    <li>
+      {{ dinosaur.name | capfirst}},
+      {{ dinosaur.diet_description }},
+      {{ dinosaur.period_description }},
+      {{ dinosaur.species }}
+    </li>
+  {% endfor %}
+</ul>

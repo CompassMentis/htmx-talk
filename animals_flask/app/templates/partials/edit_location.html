@@ -1,0 +1,13 @@
+<tr hx-target="this" hx-swap="outerHTML">
+  <form>
+    <td>
+        <input type="text" name="name" value="{{ location.name }}" maxlength="200" required>
+    </td>
+    <td>
+      <button class="button is-small is-success" hx-post="/update_location/{{ location.id }}" hx-include="[name='name']">Save</button>
+    </td>
+    <td>
+      <button class="button is-small is-warning" hx-get="/view_location/{{ location.id }}">Cancel</button>
+    </td>
+  </form>
+</tr>
